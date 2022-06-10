@@ -1,9 +1,6 @@
 package br.inatel.C206.C207;
 
-import java.util.ArrayList;
-import java.util.List;
-
-public class Paciente implements Convenio {
+public class Paciente  {
 
     protected static int count = 1;
     protected String NomeSobrenome;
@@ -14,9 +11,9 @@ public class Paciente implements Convenio {
     protected String CPF;
 //se der certo faz SEXO
 
-    public Paciente(String nomeSobrenome, String telefone, String endereco, int idPaciente, String valorConsulta, String CPF) {
+    public Paciente(String nomeSobrenome, String s, String telefone, String endereço) {
         this.NomeSobrenome = nomeSobrenome;
-        this.telefone = telefone;
+        this.telefone = this.telefone;
         this.endereco = endereco;
         this.idPaciente = count;
         this.valorConsulta = valorConsulta;
@@ -26,12 +23,6 @@ public class Paciente implements Convenio {
 
     Paciente() {
 
-    }
-
-    @Override
-    public String Convenio() {
-        System.out.println("Paciente usou seu convenio");
-        return NomeSobrenome;
     }
 
     public String getNomeSobrenome() {
@@ -59,10 +50,10 @@ public class Paciente implements Convenio {
     }
 
     public String getValorConsulta() {
-        return valorConsulta;
+        return null;
     }
 
-    public String setValorConsulta() {
+    public String setValorConsulta(String valor) {
         return valorConsulta;
     }
 

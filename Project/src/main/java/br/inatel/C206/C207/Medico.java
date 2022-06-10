@@ -1,6 +1,6 @@
 package br.inatel.C206.C207;
 
-public class Medico {
+public class Medico{
 
     protected String Nome;
     protected String tel;
@@ -38,11 +38,12 @@ public class Medico {
         this.especialidade = especialidade;
     }
 
-    public String getCRM(int crm) {
+    public String getCRM() {
         return CRM;
     }
 
     public void setCRM(String CRM) {
         this.CRM = CRM;
     }
+
 }
