@@ -14,7 +14,7 @@ public class PacienteDB extends Database{
         try {
             pst = connection.prepareStatement(sql);
             pst.setString(1, paciente.getNomeSobrenome());
-            pst.setString(2, paciente.getCPF());
+            pst.setString(2, paciente.getcpf());
             pst.setString(3, paciente.getTelefone());
             pst.setString(4, paciente.getEndereco());
             pst.execute();
@@ -44,7 +44,7 @@ public class PacienteDB extends Database{
             result = statement.executeQuery(sql);
 
             while (result.next()) {
-                Paciente pacienteTemp = new Paciente(result.getString("nome"), result.getString("cpf"), result.getString("telefone"), result.getString("endereço"), result.getInt("valor consulta"));
+                Paciente pacienteTemp = new Paciente(result.getString("nome"), result.getString("cpf"), result.getString("telefone"), result.getString("endereço"), result.getString("valor consulta"));
                 pacienteTemp.idPaciente = result.getInt("id");
                 if(pacienteTemp.idPaciente > 0) {
                     System.out.println("ID = " + pacienteTemp.idPaciente);
@@ -52,7 +52,7 @@ public class PacienteDB extends Database{
                 }
 
                 System.out.println("Nome = " + pacienteTemp.getNomeSobrenome());
-                System.out.println("CPF = " + pacienteTemp.getCPF());
+                System.out.println("CPF = " + pacienteTemp.getcpf());
                 System.out.println("Telefone = " + pacienteTemp.getTelefone());
                 System.out.println("Endereço = " + pacienteTemp.getEndereco());
                 System.out.println("Valor consulta = " + pacienteTemp.getValorConsulta());
