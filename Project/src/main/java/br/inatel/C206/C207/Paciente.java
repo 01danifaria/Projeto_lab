@@ -2,21 +2,14 @@ package br.inatel.C206.C207;
 
 public class Paciente {
 
-    public int count = 1;
+    private static int cont;
     protected String NomeSobrenome;
     protected String telefone;
     protected String endereco;
-    protected int idPaciente;
+    public int idPaciente = 1;
     protected String valorConsulta;
     protected String cpf;
     protected String sexo;
-    public String getValorConsulta() {
-        return valorConsulta;
-    }
-
-    public void setValorConsulta(String valorConsulta) {
-        this.valorConsulta = valorConsulta;
-    }
 
     public Paciente(String nomeSobrenome, String telefone, String endereco, String valorConsulta, String cpf) {
         this.NomeSobrenome = nomeSobrenome;
@@ -24,8 +17,21 @@ public class Paciente {
         this.endereco = endereco;
         this.cpf = cpf;
         this.sexo = sexo;
-        idPaciente = count;
         this.valorConsulta = valorConsulta;
+        cont++;
+        this.idPaciente = cont;
+    }
+
+    public void mostraId(){
+        System.out.println("ID do paciente: " + this.idPaciente);
+    }
+
+    public static int getCont() {
+        return Paciente.cont;
+    }
+
+    public static void setCont(int cont) {
+        Paciente.cont = cont;
     }
 
     Paciente() {
@@ -73,11 +79,19 @@ public class Paciente {
     }
 
     public int getIdPaciente() {
-        return count;
+        return idPaciente;
     }
 
-    public void setIdPaciente(int idPaciente) {
-        this.idPaciente = count;
+    public int setIdPaciente(int idPaciente) {
+        return idPaciente;
+    }
+
+    public String getValorConsulta() {
+        return valorConsulta;
+    }
+
+    public void setValorConsulta(String valorConsulta) {
+        this.valorConsulta = valorConsulta;
     }
 
     public Object valorConsulta() {return this.valorConsulta;}

@@ -5,7 +5,7 @@ import java.util.*;
 
 public class Main {
 
-    public static void main(String[] args) throws IOException, ValorConsultaInvalidaException {
+    public static void main(String[] args) throws IOException{
         int op;
         Scanner sc = new Scanner(System.in);
         boolean flag = true;
@@ -20,7 +20,7 @@ public class Main {
         while (flag) {
             System.out.println("1 - Cadastrar paciente");
             System.out.println("2 - Buscar paciente");
-            System.out.println("3 - Adicionar dinheiro ao caixa");
+            System.out.println("3 - Funcionário responsável");
             System.out.println("4 - Inserir médicos");
             System.out.println("5 - CRUD");
             System.out.println("6 - Sair");
@@ -30,38 +30,48 @@ public class Main {
                 case 1:
                     Paciente p1 = new Paciente();
                     System.out.println("Entre com as informaçoes: ");
-                    System.out.println("ID do Paciente: " + p1.idPaciente++);
+                    p1.mostraId();
+
                     sc.nextLine();
-                    System.out.println("Digite o se a consulta foi por convenio ou  Particular  ");
+
+                    System.out.println("Digite o se a consulta foi por Convenio ou Particular");
                     valorConsulta = sc.nextLine();
                     p1.setValorConsulta(valorConsulta);
-                    for (int i = 0; i < p.size(); i++) {
+                    try {
                         if (p1.valorConsulta().equals("Convenio")) {
-                            System.out.println("Paciente usou seu convenio  ");
+                            System.out.println("Paciente usou seu convenio!");
+                        } else {
+                            System.out.println("Paciente pagou pela consulta!");
                         }
-                        else {
-                            System.out.println(p1.getValorConsulta());
-                        }
+                    }catch (Exception e){
+                        System.out.println(e);
                     }
 
+                    System.out.println(" ");
                     System.out.println("Digite o nome do paciente: ");
                     nome = sc.nextLine();
                     p1.setNomeSobrenome(nome);
+
                     System.out.println("Digite o CPF do paciente: ");
                     cpf = sc.nextLine();
                     p1.setcpf(cpf);
+
                     System.out.println("Digite o Telefone do paciente: ");
                     telefone = sc.nextLine();
                     p1.setTelefone(telefone);
+
                     System.out.println("Digite o endereço do paciente: ");
                     endereco = sc.nextLine();
                     p1.setEndereco(endereco);
+
                     System.out.println("Digite o sexo: ");
                     sexo = sc.nextLine();
                     p1.setSexo(sexo);
+
                     p.add(p1);//adiciona o paciente atual à nossa lista de pacientes
                     System.out.println("Paciente cadastrado! ");
                     break;
+
                 case 2:
                     System.out.println("Digite o cpf do paciente a ser pesquisado: ");
                     Scanner input = new Scanner(System.in);
@@ -76,12 +86,11 @@ public class Main {
                         else
                             System.out.println("Paciente não encontrado");
                     }
-
                     break;
 
                 case 3:
                     Funcionario func = new Funcionario("Julia Alcantara","364521452", "1");
-                    func.dinheiro("Dinheiro foi adicionado ao caixa por " + func);
+                    func.FuncResponsavel("O responsável responsável: " + func);
                     break;
 
                 case 4:

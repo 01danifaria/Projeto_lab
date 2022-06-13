@@ -1,6 +1,6 @@
 package br.inatel.C206.C207;
 
-public class Funcionario implements Dinheiro {
+public class Funcionario implements FuncResponsavel {
 
     protected String NomeSobrenome;
     protected String telefone;
@@ -14,8 +14,8 @@ public class Funcionario implements Dinheiro {
     }
 
     @Override
-    public String dinheiro(String message) {
-        System.out.println("O dinheiro foi adicionado ao caixa por " + NomeSobrenome);
+    public String FuncResponsavel(String message) {
+        System.out.println("Funcionário responsável pelos cadastros " + NomeSobrenome);
         return message;
     }
 
