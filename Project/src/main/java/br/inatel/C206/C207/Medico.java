@@ -5,16 +5,16 @@ public class Medico{
     protected String Nome;
     protected String tel;
     protected String especialidade;
-    protected String CRM;
+    protected int CRM;
 
     public Medico() {
         this.Nome = Nome;
         this.tel = tel;
-        this.especialidade = especialidade;
+        this.especialidade = this.especialidade;
         this.CRM = CRM;
     }
 
-    public String getNome(String nome) {
+    public String getNome() {
         return Nome;
     }
 
@@ -22,7 +22,7 @@ public class Medico{
         return nome;
     }
 
-    public String getTel(String tel) {
+    public String getTel() {
         return this.tel;
     }
 
@@ -30,7 +30,7 @@ public class Medico{
         this.tel = tel;
     }
 
-    public String getEspecialidade(String especialide) {
+    public String getEspecialidade() {
         return especialidade;
     }
 
@@ -38,11 +38,11 @@ public class Medico{
         this.especialidade = especialidade;
     }
 
-    public String getCRM() {
+    public int getCRM() {
         return CRM;
     }
 
-    public void setCRM(String CRM) {
+    public void setCRM(int  CRM) {
         this.CRM = CRM;
     }
 
