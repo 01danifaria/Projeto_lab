@@ -28,6 +28,7 @@ public class Main {
             op = sc.nextInt();
             switch (op) {
                 case 1:
+
                     Paciente p1 = new Paciente();
                     System.out.println("Entre com as informaçoes: ");
                     p1.mostraId();
@@ -115,16 +116,20 @@ public class Main {
                     me1.getCRM();
 
                 case 5:
+                    //Criando objetos de manipulação no BD
                     PacienteDB pacienteDB = new PacienteDB();
 
+                    //Criando objetos para inserir no BD
                     Paciente paciente1 = new Paciente("Antonia dos Santos", "111.111.11.00", "147582", "Rua das Palmeiras", "100");
                     Paciente paciente2 = new Paciente("José Faria", "1114.4556.00", "158935", "Avenida dos lagos", "200");
                     Paciente paciente3 = new Paciente("Marco da Silva", "4785.25474.45","789665","Avenida dos anjos","300");
 
+                    //Inserindo informações no BD
                     pacienteDB.insertPaciente(paciente1);
                     pacienteDB.insertPaciente(paciente2);
                     pacienteDB.insertPaciente(paciente3);
 
+                    //Buscando informações no BD
                     pacienteDB.reserachPaciente();
 
                     System.out.println("--------Atualizando nome e sobrenome--------");
@@ -133,6 +138,8 @@ public class Main {
 
                     System.out.println("--------Excluindo usuário--------");
                     pacienteDB.deletePaciente(1);
+
+                    //Mostrando resultados final no BD
                     pacienteDB.reserachPaciente();
                     break;
 
