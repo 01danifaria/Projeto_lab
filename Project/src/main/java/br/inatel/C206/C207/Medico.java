@@ -5,7 +5,7 @@ public class Medico{
     protected String Nome;
     protected String tel;
     protected String especialidade;
-    protected int CRM;
+    protected String CRM;
 
     public Medico() {
         this.Nome = Nome;
@@ -38,11 +38,11 @@ public class Medico{
         this.especialidade = especialidade;
     }
 
-    public int getCRM() {
+    public String getCRM() {
         return CRM;
     }
 
-    public void setCRM(int  CRM) {
+    public void setCRM(String  CRM) {
         this.CRM = CRM;
     }
 

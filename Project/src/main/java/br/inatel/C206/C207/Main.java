@@ -9,46 +9,53 @@ public class Main {
         int op;
         Scanner sc = new Scanner(System.in);
         boolean flag = true;
-        String nome;
-        String telefone;
+        Paciente paciente = new Paciente();
+        PacienteDB pacienteDB = new PacienteDB();
+        ArrayList<Paciente> p = new ArrayList<Paciente>();
+        FuncionarioDB funcionarioDB = new FuncionarioDB();
+        Funcionario funcionario = new Funcionario();
+        String nome, nomef;
+        String telefone, telf;
         String endereco;
         String cpf;
-        String valorConsulta;
-        String sexo;
+        int valorConsulta, idF, idP, idFK;
 
-        ArrayList<Paciente> p = new ArrayList<Paciente>();
+
         while (flag) {
-            System.out.println("1 - Cadastrar paciente");
-            System.out.println("2 - Buscar paciente");
-            System.out.println("3 - Funcionário responsável");
-            System.out.println("4 - Inserir médicos");
-            System.out.println("5 - CRUD");
+            System.out.println("1 - Cadastrar funcionário");
+            System.out.println("2 - Cadastrar paciente");
+            System.out.println("3 - Buscar funcionário");
+            System.out.println("4 - Atualizar funcionário");
+            System.out.println("5 - Excluir funcionário");
             System.out.println("6 - Sair");
             System.out.println("Sua opção: ");
             op = sc.nextInt();
             switch (op) {
-                case 1:
 
+                case 1:
+                    sc.nextLine();
+                    System.out.println("Entre com as informações do funcionário: ");
+
+                    System.out.println("Nome do funcionário: ");
+                    nomef = sc.nextLine();
+                    funcionario.setNomeSobrenome(nomef);
+
+                    System.out.println("Telefone do funcionário: ");
+                    telf = sc.nextLine();
+                    funcionario.setTelefone(telf);
+
+                    funcionarioDB.insertFuncionario(funcionario);
+                    break;
+
+                case 2:
                     Paciente p1 = new Paciente();
-                    System.out.println("Entre com as informaçoes: ");
-                    p1.mostraId();
+                    System.out.println("Entre com as informações: ");
+                    System.out.println("Digite o valor da consulta: ");
+                    valorConsulta = sc.nextInt();
+                    p1.setValorConsulta(valorConsulta);
 
                     sc.nextLine();
 
-                    System.out.println("Digite o se a consulta foi por Convenio ou Particular");
-                    valorConsulta = sc.nextLine();
-                    p1.setValorConsulta(valorConsulta);
-                    try {
-                        if (p1.valorConsulta().equals("Convenio")) {
-                            System.out.println("Paciente usou seu convenio!");
-                        } else {
-                            System.out.println("Paciente pagou pela consulta!");
-                        }
-                    }catch (Exception e){
-                        System.out.println(e);
-                    }
-
-                    System.out.println(" ");
                     System.out.println("Digite o nome do paciente: ");
                     nome = sc.nextLine();
                     p1.setNomeSobrenome(nome);
@@ -56,91 +63,39 @@ public class Main {
                     System.out.println("Digite o CPF do paciente: ");
                     cpf = sc.nextLine();
                     p1.setcpf(cpf);
-
-                    System.out.println("Digite o Telefone do paciente: ");
+                    System.out.println("Digite o telefone do paciente: ");
                     telefone = sc.nextLine();
                     p1.setTelefone(telefone);
-
                     System.out.println("Digite o endereço do paciente: ");
                     endereco = sc.nextLine();
                     p1.setEndereco(endereco);
-
-                    System.out.println("Digite o sexo: ");
-                    sexo = sc.nextLine();
-                    p1.setSexo(sexo);
 
                     p.add(p1);//adiciona o paciente atual à nossa lista de pacientes
                     System.out.println("Paciente cadastrado! ");
                     break;
 
-                case 2:
-                    System.out.println("Digite o cpf do paciente a ser pesquisado: ");
-                    Scanner input = new Scanner(System.in);
-                    cpf = input.nextLine();
-                    for (int i = 0; i < p.size(); i++) {
-                        if (p.get(i).getcpf().equals(cpf)) {
-                            System.out.println(p.get(i).getNomeSobrenome());
-                            System.out.println(p.get(i).getTelefone());
-                            System.out.println(p.get(i).getEndereco());
-                            System.out.println(p.get(i).getSexo());
-                        }
-                        else
-                            System.out.println("Paciente não encontrado");
-                    }
-                    break;
 
                 case 3:
-                    Funcionario func = new Funcionario("Julia Alcantara","364521452", "1");
-                    func.FuncResponsavel("O responsável responsável: " + func);
+                    //Buscando informações no BD
+                    funcionarioDB.reserachFuncionario();
+
                     break;
 
                 case 4:
-                    String nom, tel, especialide, crm;
-                    sc.nextLine();
-
-                    Medico me1 = new Medico();
-                    System.out.println("Digite o nome do médico: ");
-                    nom = sc.nextLine();
-                    me1.getNome();
-
-                    System.out.println("Digite o telefone do médico: ");
-                    tel = sc.nextLine();
-                    me1.getTel();
-
-                    System.out.println("Digite a especialidade do médico: ");
-                    especialide = sc.nextLine();
-                    me1.getEspecialidade();
-
-                    System.out.println("Digite o CRM do médico: ");
-                    crm = sc.nextLine();
-                    me1.getCRM();
-
-                case 5:
-                    //Criando objetos de manipulação no BD
-                    PacienteDB pacienteDB = new PacienteDB();
-
-                    //Criando objetos para inserir no BD
-                    Paciente paciente1 = new Paciente("Antonia dos Santos", "111.111.11.00", "147582", "Rua das Palmeiras", "100");
-                    Paciente paciente2 = new Paciente("José Faria", "1114.4556.00", "158935", "Avenida dos lagos", "200");
-                    Paciente paciente3 = new Paciente("Marco da Silva", "4785.25474.45","789665","Avenida dos anjos","300");
-
-                    //Inserindo informações no BD
-                    pacienteDB.insertPaciente(paciente1);
-                    pacienteDB.insertPaciente(paciente2);
-                    pacienteDB.insertPaciente(paciente3);
-
-                    //Buscando informações no BD
-                    pacienteDB.reserachPaciente();
-
                     System.out.println("--------Atualizando nome e sobrenome--------");
-                    pacienteDB.updatePaciente(1, "Flavia");
-                    pacienteDB.reserachPaciente();
-
-                    System.out.println("--------Excluindo usuário--------");
-                    pacienteDB.deletePaciente(1);
+                    funcionarioDB.updateFuncionario("Carolina", "8526");
 
                     //Mostrando resultados final no BD
-                    pacienteDB.reserachPaciente();
+                    funcionarioDB.reserachFuncionario();
+                    break;
+
+
+                case 5:
+                    System.out.println("--------Excluindo usuário--------");
+                    funcionarioDB.deleteFuncionario("6325");
+
+                    //Mostrando resultados final no BD
+                    funcionarioDB.reserachFuncionario();
                     break;
 
                 case 6:
@@ -153,6 +108,5 @@ public class Main {
                     break;
             }
         }
-
     }
 }

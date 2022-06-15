@@ -4,13 +4,16 @@ public class Funcionario implements FuncResponsavel {
 
     protected String NomeSobrenome;
     protected String telefone;
-    protected String  idFunconario;
+    protected int idFunconario;
 
 
-    public Funcionario(String nomeSobrenome, String telefone, String idFuncionario) {
+    public Funcionario(String nomeSobrenome, String telefone, int idFuncionario) {
         NomeSobrenome = nomeSobrenome;
         this.telefone = telefone;
         this.idFunconario = idFuncionario;
+    }
+
+    Funcionario(){
     }
 
     @Override
@@ -35,11 +38,11 @@ public class Funcionario implements FuncResponsavel {
         this.telefone = telefone;
     }
 
-    public String getIdFunconario() {
+    public int getIdFunconario() {
         return idFunconario;
     }
 
-    public void setIdFunconario(String idFunconario) {
-        this.idFunconario = idFunconario;
+    public int setIdFunconario(int idF) {
+        return idFunconario;
     }
 }

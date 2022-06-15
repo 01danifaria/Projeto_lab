@@ -11,7 +11,7 @@ public abstract class Database {
 
     static final String Paciente = "root";   //usuario da instancia local do servidor
     static final String password = "Macacopelado.12"; //senha do usuário da intencia local do servidor
-    static final String database = "consultasmedicas";  //nome do banco de dados a ser utilizado
+    static final String database = "consultas";  //nome do banco de dados a ser utilizado
 
     //String com a URL de conexão com o servidor
     static final String url = "jdbc:mysql://localhost:3306/" + database + "?useTimezone=true&serverTimezone=UTC&useSSL=false";
