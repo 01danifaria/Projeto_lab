@@ -1,2 +1,2 @@
 # Projeto_lab
-Projeto laboratório
+Projeto de laboratório das matérias de Programação Orientada a Objetos e Banco de Dados
