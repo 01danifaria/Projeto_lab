@@ -36,6 +36,7 @@ public class PacienteDB extends Database{
         }
         return check;
     }
+
 //-----------------------------BUSCANDO TODOS OS REGISTROS------------------------------
     public ArrayList<Paciente> reserachPaciente() {
         connect(); //chamada da função que realiza a conexão com o servidor

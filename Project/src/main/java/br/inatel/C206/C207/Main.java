@@ -5,21 +5,12 @@ import java.util.*;
 
 public class Main {
 
-    public static void main(String[] args) throws IOException{
+    public static void main(String[] args){
         int op;
         Scanner sc = new Scanner(System.in);
         boolean flag = true;
-        Paciente paciente = new Paciente();
-        PacienteDB pacienteDB = new PacienteDB();
-        ArrayList<Paciente> p = new ArrayList<Paciente>();
-        FuncionarioDB funcionarioDB = new FuncionarioDB();
-        Funcionario funcionario = new Funcionario();
-        String nome, nomef;
-        String telefone, telf;
-        String endereco;
-        String cpf;
-        int valorConsulta, idF, idP, idFK;
-
+        FuncionarioDB funcionarioDB = new FuncionarioDB();            //criação de um funcionário no Banco de dados
+        Funcionario funcionario = new Funcionario();                 //criação de um novo funcionário
 
         while (flag) {
             System.out.println("1 - Cadastrar funcionário");
@@ -34,33 +25,30 @@ public class Main {
                 case 1:
                     sc.nextLine();
                     System.out.println("Entre com as informações do funcionário: ");
-
                     System.out.println("Nome do funcionário: ");
-                    funcionario.setNomeSobrenome(sc.nextLine());
+                    funcionario.setNomeSobrenome(sc.nextLine());               //foi chamada a função de setar um nome do funcionario juntamente com a entrada de dados do nome do funcionario
                     System.out.println("Telefone do funcionário: ");
-                    funcionario.setTelefone(sc.nextLine());
-
+                    funcionario.setTelefone(sc.nextLine());                    //foi chamada a função de setar o telefone do funcionario juntamente com a entradada de dados do telefone do funcionario
                     funcionarioDB.insertFuncionario(funcionario);
                     break;
 
                 case 2:
                     //Buscando informações no BD
                     funcionarioDB.reserachFuncionario();
-
                     break;
 
                 case 3:
-                    System.out.println("Entre com o nome e a identificação do funcionário para alterar: ");
-                    funcionario.setNomeSobrenome(sc.nextLine());
+                    System.out.println("Entre com o nome e a identificação do funcionário para alterar: ");    //aqui foi preciso escrever o nome do funcionário e abaixo do sua identificação
+                    funcionario.setNomeSobrenome(sc.nextLine());              //foi chamada a função de setar o nome do funcionário juntamente com a entrada de dados do nome do funcionário
+                    funcionarioDB.updateFuncionario(sc.nextLine(),sc.nextInt());      //foi chamada a função de atualizar os funcionários juntamente com a entrada de dados do nome e id do funcionário
 
-                    funcionarioDB.updateFuncionario(sc.nextLine(),sc.nextInt());
+                    //Mostrando resultados final no BD
                     funcionarioDB.reserachFuncionario();
                     break;
 
-
                 case 4:
                     System.out.println("Digite a identificação que deseja deletar: ");
-                    funcionarioDB.deleteFuncionario(sc.nextInt());
+                    funcionarioDB.deleteFuncionario(sc.nextInt());              //aqui foi chamada a função deletar funcionário juntamente com a entrada de dados do id, que será deletado
 
                     //Mostrando resultados final no BD
                     funcionarioDB.reserachFuncionario();

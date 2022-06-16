@@ -5,7 +5,7 @@ public class Paciente {
     protected String NomeSobrenome;
     protected String telefone;
     protected String endereco;
-    public int idPaciente = 0;
+    public int idPaciente;
     protected int valorConsulta;
     protected String cpf;
     public int fk_funcionario;

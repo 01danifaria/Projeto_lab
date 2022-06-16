@@ -6,7 +6,6 @@ public class Funcionario {
     protected String telefone;
     protected int idFunconario;
 
-
     public Funcionario(String nomeSobrenome, String telefone, int idFuncionario) {
         NomeSobrenome = nomeSobrenome;
         this.telefone = telefone;

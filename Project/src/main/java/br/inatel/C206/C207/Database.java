@@ -26,5 +26,4 @@ public abstract class Database {
             System.out.println("Erro de conexão: " + e.getMessage());
         }
     }
-
 }
