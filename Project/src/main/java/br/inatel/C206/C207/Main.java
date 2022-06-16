@@ -23,11 +23,10 @@ public class Main {
 
         while (flag) {
             System.out.println("1 - Cadastrar funcionário");
-            System.out.println("2 - Cadastrar paciente");
-            System.out.println("3 - Buscar funcionário");
-            System.out.println("4 - Atualizar funcionário");
-            System.out.println("5 - Excluir funcionário");
-            System.out.println("6 - Sair");
+            System.out.println("2 - Buscar funcionário");
+            System.out.println("3 - Atualizar funcionário");
+            System.out.println("4 - Excluir funcionário");
+            System.out.println("5 - Sair");
             System.out.println("Sua opção: ");
             op = sc.nextInt();
             switch (op) {
@@ -37,68 +36,37 @@ public class Main {
                     System.out.println("Entre com as informações do funcionário: ");
 
                     System.out.println("Nome do funcionário: ");
-                    nomef = sc.nextLine();
-                    funcionario.setNomeSobrenome(nomef);
-
+                    funcionario.setNomeSobrenome(sc.nextLine());
                     System.out.println("Telefone do funcionário: ");
-                    telf = sc.nextLine();
-                    funcionario.setTelefone(telf);
+                    funcionario.setTelefone(sc.nextLine());
 
                     funcionarioDB.insertFuncionario(funcionario);
                     break;
 
                 case 2:
-                    Paciente p1 = new Paciente();
-                    System.out.println("Entre com as informações: ");
-                    System.out.println("Digite o valor da consulta: ");
-                    valorConsulta = sc.nextInt();
-                    p1.setValorConsulta(valorConsulta);
-
-                    sc.nextLine();
-
-                    System.out.println("Digite o nome do paciente: ");
-                    nome = sc.nextLine();
-                    p1.setNomeSobrenome(nome);
-
-                    System.out.println("Digite o CPF do paciente: ");
-                    cpf = sc.nextLine();
-                    p1.setcpf(cpf);
-                    System.out.println("Digite o telefone do paciente: ");
-                    telefone = sc.nextLine();
-                    p1.setTelefone(telefone);
-                    System.out.println("Digite o endereço do paciente: ");
-                    endereco = sc.nextLine();
-                    p1.setEndereco(endereco);
-
-                    p.add(p1);//adiciona o paciente atual à nossa lista de pacientes
-                    System.out.println("Paciente cadastrado! ");
-                    break;
-
-
-                case 3:
                     //Buscando informações no BD
                     funcionarioDB.reserachFuncionario();
 
                     break;
 
+                case 3:
+                    System.out.println("Entre com o nome e a identificação do funcionário para alterar: ");
+                    funcionario.setNomeSobrenome(sc.nextLine());
+
+                    funcionarioDB.updateFuncionario(sc.nextLine(),sc.nextInt());
+                    funcionarioDB.reserachFuncionario();
+                    break;
+
+
                 case 4:
-                    System.out.println("--------Atualizando nome e sobrenome--------");
-                    funcionarioDB.updateFuncionario("Carolina", "8526");
+                    System.out.println("Digite a identificação que deseja deletar: ");
+                    funcionarioDB.deleteFuncionario(sc.nextInt());
 
                     //Mostrando resultados final no BD
                     funcionarioDB.reserachFuncionario();
                     break;
-
 
                 case 5:
-                    System.out.println("--------Excluindo usuário--------");
-                    funcionarioDB.deleteFuncionario("6325");
-
-                    //Mostrando resultados final no BD
-                    funcionarioDB.reserachFuncionario();
-                    break;
-
-                case 6:
                     System.out.println("Voce saiu!");
                     flag = false;
                     break;

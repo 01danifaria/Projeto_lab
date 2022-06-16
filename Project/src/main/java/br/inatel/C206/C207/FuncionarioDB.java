@@ -67,14 +67,16 @@ public class FuncionarioDB extends Database {
     }
 
     //-----------------------ATUALIZANDO REGISTRO--------------------------
-    public boolean updateFuncionario(String nome, String telefone) {
+    public boolean updateFuncionario(String nome,int id) {
+
         connect();  //chamada da função que realiza a conexão com o servidor
-        String sql = "UPDATE Funcionario SET nomeSobrenome = ? WHERE telefone = ? ";
+        String sql = "UPDATE Funcionario set nomesobrenome = ? WHERE idFuncionario = ? ";
 
         try {
+            System.out.println();
             pst = connection.prepareStatement(sql); //relaciona o objeto responsável por preparar as querys com o objeto responsável por fazer a conexão com o servidor
-            pst.setString(1, nome);     //concatena nome na primeira ? do comando
-            pst.setString(2, telefone);          //concatena id n na segunda ? do comando
+            pst.setString(1, nome);
+            pst.setInt(2,id);     //concatena nome na primeira ? do comando
             pst.execute();  //executa o objeto responsável por preparar querys de manipulação
             check = true;
 
@@ -86,13 +88,13 @@ public class FuncionarioDB extends Database {
     }
 
     //---------------------------EXCLINDO REGISTRO------------------------
-    public boolean deleteFuncionario(String telefone){
+    public boolean deleteFuncionario(int id){
         connect(); //chamada da função que realiza a conexão com o servidor
-        String sql = "DELETE FROM Funcionario WHERE telefone = ?";
+        String sql = "DELETE FROM Funcionario WHERE idFuncionario = ?";
 
         try {
             pst = connection.prepareStatement(sql); //relaciona o objeto responsável por preparar as querys com o objeto responsável por fazer a conexão com o servidor
-            pst.setString(1, telefone);  //concatena nome na primeira ? do comando
+            pst.setInt(1, id);  //concatena nome na primeira ? do comando
             pst.execute(); //executa o objeto responsável por preparar querys de manipulação
             check = true;
 
