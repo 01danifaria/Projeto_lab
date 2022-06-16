@@ -1,6 +1,6 @@
 package br.inatel.C206.C207;
 
-public class Funcionario implements FuncResponsavel {
+public class Funcionario {
 
     protected String NomeSobrenome;
     protected String telefone;
@@ -14,12 +14,6 @@ public class Funcionario implements FuncResponsavel {
     }
 
     Funcionario(){
-    }
-
-    @Override
-    public String FuncResponsavel(String message) {
-        System.out.println("Funcionário responsável pelos cadastros " + NomeSobrenome);
-        return message;
     }
 
     public String getNomeSobrenome() {
