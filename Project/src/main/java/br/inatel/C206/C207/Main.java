@@ -10,14 +10,15 @@ public class Main {
         Scanner sc = new Scanner(System.in);
         boolean flag = true;
         FuncionarioDB funcionarioDB = new FuncionarioDB();            //criação de um funcionário no Banco de dados
-        Funcionario funcionario = new Funcionario();                 //criação de um novo funcionário
+        Funcionario funcionario = new Funcionario();                  //criação de um novo funcionário
 
         while (flag) {
-            System.out.println("1 - Cadastrar funcionário");
+            System.out.println("1 - Inserir funcionário");
             System.out.println("2 - Buscar funcionário");
             System.out.println("3 - Atualizar funcionário");
             System.out.println("4 - Excluir funcionário");
-            System.out.println("5 - Sair");
+            System.out.println("5 - Cadastrar paciente");
+            System.out.println("6 - Sair");
             System.out.println("Sua opção: ");
             op = sc.nextInt();
             switch (op) {
@@ -55,6 +56,27 @@ public class Main {
                     break;
 
                 case 5:
+                    ArrayList<Paciente> paciente = new ArrayList<>();
+                    Paciente p1 = new Paciente();
+                    System.out.println("Entre com as informaçoes: ");
+                    sc.nextLine();
+                    System.out.println("Digite o valor da consulta");
+                    p1.setValorConsulta(sc.nextInt());
+                    sc.nextLine();
+                    System.out.println("Digite o nome do paciente: ");
+                    p1.setNomeSobrenome(sc.nextLine());
+                    System.out.println("Digite o CPF do paciente: ");
+                    p1.setcpf(sc.nextLine());
+                    System.out.println("Digite o Telefone do paciente: ");
+                    p1.setTelefone(sc.nextLine());
+                    System.out.println("Digite o endereço do paciente: ");
+                    p1.setEndereco(sc.nextLine());
+                    paciente.add(p1);                                      //adiciona o paciente atual à nossa lista de pacientes
+                    System.out.println("Paciente cadastrado! ");
+
+                    break;
+
+                case 6:
                     System.out.println("Voce saiu!");
                     flag = false;
                     break;
